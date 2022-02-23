@@ -5,6 +5,6 @@
 #' @param rgb A matrix of colours in RGB format.
 #' @export
 
-create_lab <- function(rgb = full_rgb){
+#create_lab <- function(rgb = full_rgb){
 
-}
+#}

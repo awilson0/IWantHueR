@@ -7,3 +7,4 @@ test_that("IWantHueR:::xyz_to_rgb() uses the correct functions for gamma correct
   rgb <- cbind(r,g,b)
   testthat::expect_equal(sapply(rgb, function(x){xyz_to_rgb(x)}), c(124, 1, 0))
 })
+
