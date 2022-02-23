@@ -1,6 +1,3 @@
-#' xyz_to_rgb
-#' @param u 
-
 xyz_to_rgb <- function(u){
   if(u <= 0.00304){
     return(round(255 * 12.92 * u))
@@ -9,18 +6,12 @@ xyz_to_rgb <- function(u){
   }
 }
 
-#' xyz_to_lab
-#' @param t
-
 xyz_to_lab <- function(t){
   if(t > 0.008856452){
     return(t^(1/3))
   }
   return(t / 0.12841855 + 0.137931034)
 }
-
-#' rgb_to_xyz
-#' @param rgb Vector of RGB components
 
 rgb_to_xyz <- function(rgb){
   rgb <- sapply(rgb, function(x){
@@ -42,8 +33,6 @@ rgb_to_xyz <- function(rgb){
   return(c(x,y,z))
 }
 
-#' lab_to_xyz
-#' @param t
 
 lab_to_xyz <- function(t){
   if(t > 0.206896552){
@@ -52,8 +41,6 @@ lab_to_xyz <- function(t){
   return(0.12841855 * (t - 0.137931034))
 }
 
-#' lab_to_rgb
-#' @param lab
 
 lab_to_rgb <- function(lab){
   l <- lab[1]
@@ -83,8 +70,6 @@ lab_to_rgb <- function(lab){
   return(c(r,g,b))
 }
 
-#' rgb_to_lab
-#' @param rgb
 rgb_to_lab <- function(rgb){
   xyz <- rgb_to_xyz(rgb)
   x <- xyz[1]
@@ -98,14 +83,10 @@ rgb_to_lab <- function(rgb){
   return(c(l, 500*(x - y), 200*(y - z)))
 }
 
-#' validate_rgb
-#' @param rgb
 validate_rgb <- function(rgb){
   return(all(sapply(rgb, function(x){x >= 0 && x <= 255}, USE.NAMES = F)))
 }
 
-#' lab_to_rgb_hex
-#' @param lab
 lab_to_rgb_hex <- function(lab){
   rgb <- lab_to_rgb(lab)
   return(paste0("#", cat(as.character.hexmode(rgb))))
